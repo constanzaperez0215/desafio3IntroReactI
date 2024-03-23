@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form';
-import { useId, useState } from 'react';
+
 
 const Formulario= ({colaboradores, setColaboradores}) => {
 
