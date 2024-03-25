@@ -1,19 +1,27 @@
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useState } from 'react';
 
-const Buscador = ({buscar, colaboradores, setColaboradores, setBuscar}) => {
-  
-  const buscarColaborador = (e) => setBuscar(e.target.value)
+const Buscador = ({colaboradores, setColaboradores}) => {
 
+  const[search, setSearch]= useState("")
+  const buscarColaborador = (e) => {
+    let value = e.target.value
+    setSearch(value)
 
   let filtrados = colaboradores.filter((colaborador) =>{
-    return(
-      colaborador.nombre.toLowerCase().includes(buscar.toLowerCase()) || colaborador.correo.toLowerCase().includes(buscar.toLowerCase()) || colaborador.edad.toLowerCase().includes(buscar.toLowerCase()) || colaborador.cargo.toLowerCase().includes(buscar.toLowerCase()) || colaborador.telefono.toLowerCase().includes(buscar.toLowerCase())
+    if(
+      colaborador.nombre.toLowerCase().includes(value.toLowerCase()) ||
+      colaborador.correo.toLowerCase().includes(value.toLowerCase()) ||
+      colaborador.edad.toLowerCase().includes(value.toLowerCase()) ||
+      colaborador.cargo.toLowerCase().includes(value.toLowerCase()) ||
+      colaborador.telefono.toLowerCase().includes(value.toLowerCase())
     )
+    return(colaboradores)
   })
-
   console.log(filtrados)
+  }
 
   return (
     <Form>
@@ -24,7 +32,7 @@ const Buscador = ({buscar, colaboradores, setColaboradores, setBuscar}) => {
           placeholder="Busca un colaborador"
           className=" mr-sm-2"
           onChange={buscarColaborador}
-          value={buscar}
+          value={search}
         />
       </Col>
     </Row>

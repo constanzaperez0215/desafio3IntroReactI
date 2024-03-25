@@ -14,27 +14,24 @@ import Buscador from './componentes/Buscador'
 const App = () => {
 
   const [colaboradores, setColaboradores] = useState(BaseColaboradores)
-  const [alert, setAlert]= useState({error: "", msj: "", color: ""})
+  const [alert, setAlert] = useState({ error: "", msj: "", color: "" })
   const [buscar, setBuscar] = useState("")
-  
+
   console.log(setBuscar)
 
   return (
-    <>
-      <Container>
-        <Row>
-          <Col md={9}>
-            <Buscador buscar={buscar} setBuscar={setBuscar} colaboradores={colaboradores} setColaboradores={setColaboradores} />
-            <Listado colaboradores={colaboradores} buscar={buscar} setColaboradores={setColaboradores} />
-          </Col>
-          <Col md={3}>
-            <Formulario setAlert={setAlert} colaboradores={colaboradores} setColaboradores={setColaboradores}/>
-            {alert.msj && <Alert color={alert.color}>{alert.msj}</Alert>}
-          </Col>
-        </Row>
-      </Container>
-
-    </>
+    <Container>
+      <Row>
+        <Col md={9}>
+          <Buscador buscar={buscar} setBuscar={setBuscar} colaboradores={colaboradores} setColaboradores={setColaboradores} />
+          <Listado colaboradores={colaboradores} buscar={buscar} setColaboradores={setColaboradores} />
+        </Col>
+        <Col md={3}>
+          <Formulario setAlert={setAlert} colaboradores={colaboradores} setColaboradores={setColaboradores} />
+          {alert.msj && <Alert color={alert.color}>{alert.msj}</Alert>}
+        </Col>
+      </Row>
+    </Container>
   )
 }
 
