@@ -1,9 +1,11 @@
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form';
+import { useState } from 'react';
 
 
-const Formulario= ({colaboradores, setColaboradores}) => {
+
+const Formulario= ({colaboradores, setColaboradores, setAlert}) => {
 
   const [nuevoColaborador, setNuevoColaborador] = useState({
     nombre: '',
@@ -21,8 +23,27 @@ const Formulario= ({colaboradores, setColaboradores}) => {
 
   const enviarFormulario = (e) => {
     e.preventDefault()
+    if(nuevoColaborador.nombre==="" || nuevoColaborador.correo==="" || nuevoColaborador.edad==="" || nuevoColaborador.cargo==="" || nuevoColaborador.telefono===""){
+      setAlert({
+        error: true,
+        msj: "Completa los campos vacios",
+        color: "danger"
+      })
+      return
+    }
+
+    setAlert({error:false, msj: "Colaborador agregado!", color:"success"})
+
+
     const colaborador_id = {...nuevoColaborador, id: Date.now()}
     setColaboradores([...colaboradores, colaborador_id])
+    setNuevoColaborador({
+      nombre: '',
+      correo: '',
+      edad: '',
+      cargo: '',
+      telefono:''
+    })
   }
 
 

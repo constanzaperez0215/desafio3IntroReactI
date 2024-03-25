@@ -1,9 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Table from 'react-bootstrap/Table';
 
-const Listado = ({colaboradores}) => {
+const Listado = ({colaboradores, setColaboradores}) => {
     console.log(colaboradores)
 
+   
 
   return (
     <>
