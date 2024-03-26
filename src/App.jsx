@@ -15,16 +15,16 @@ const App = () => {
 
   const [colaboradores, setColaboradores] = useState(BaseColaboradores)
   const [alert, setAlert] = useState({ error: "", msj: "", color: "" })
-  const [buscar, setBuscar] = useState("")
+  const[search, setSearch]= useState("")
 
-  console.log(setBuscar)
+  console.log(setSearch)
 
   return (
     <Container>
       <Row>
         <Col md={9}>
-          <Buscador buscar={buscar} setBuscar={setBuscar} colaboradores={colaboradores} setColaboradores={setColaboradores} />
-          <Listado colaboradores={colaboradores} buscar={buscar} setColaboradores={setColaboradores} />
+          <Buscador search={search} setSearch={setSearch} colaboradores={colaboradores} setColaboradores={setColaboradores} />
+          <Listado colaboradores={colaboradores} search={search} setColaboradores={setColaboradores} />
         </Col>
         <Col md={3}>
           <Formulario setAlert={setAlert} colaboradores={colaboradores} setColaboradores={setColaboradores} />

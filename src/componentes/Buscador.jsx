@@ -1,27 +1,33 @@
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { useState } from 'react';
 
-const Buscador = ({colaboradores, setColaboradores}) => {
 
-  const[search, setSearch]= useState("")
+const Buscador = ({colaboradores, setColaboradores,search, setSearch}) => {
+
+
   const buscarColaborador = (e) => {
     let value = e.target.value
     setSearch(value)
 
-  let filtrados = colaboradores.filter((colaborador) =>{
-    if(
-      colaborador.nombre.toLowerCase().includes(value.toLowerCase()) ||
-      colaborador.correo.toLowerCase().includes(value.toLowerCase()) ||
-      colaborador.edad.toLowerCase().includes(value.toLowerCase()) ||
-      colaborador.cargo.toLowerCase().includes(value.toLowerCase()) ||
-      colaborador.telefono.toLowerCase().includes(value.toLowerCase())
-    )
-    return(colaboradores)
-  })
-  console.log(filtrados)
+   let filtrados = colaboradores.filter((colaborador) =>{
+     if(
+       colaborador.nombre.toLowerCase().includes(value.toLowerCase()) ||
+       colaborador.correo.toLowerCase().includes(value.toLowerCase()) ||
+       colaborador.edad.toLowerCase().includes(value.toLowerCase()) ||
+       colaborador.cargo.toLowerCase().includes(value.toLowerCase()) ||
+       colaborador.telefono.toLowerCase().includes(value.toLowerCase())
+     )
+     return(colaboradores)
+   })
+
+
+ if(filtrados.length === ""){
+    setColaboradores(colaboradores)
+   }else
+    setColaboradores(filtrados)
   }
+
 
   return (
     <Form>
