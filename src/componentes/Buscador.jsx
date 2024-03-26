@@ -30,9 +30,9 @@ const Buscador = ({colaboradores, setColaboradores,search, setSearch}) => {
 
 
   return (
-    <Form>
+    <Form className='buscador'>
     <Row>
-      <Col md={5}>
+      <Col md={6}>
         <Form.Control
           type="text"
           placeholder="Busca un colaborador"

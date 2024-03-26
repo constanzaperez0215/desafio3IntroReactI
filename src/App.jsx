@@ -20,11 +20,12 @@ const App = () => {
   console.log(setSearch)
 
   return (
-    <Container>
+    <Container className='contenedor'>
       <Row>
         <Col md={9}>
+        <h2>Lista de Colaboradores</h2>
           <Buscador search={search} setSearch={setSearch} colaboradores={colaboradores} setColaboradores={setColaboradores} />
-          <Listado colaboradores={colaboradores} search={search} setColaboradores={setColaboradores} />
+          <Listado className="listado" colaboradores={colaboradores} search={search} setColaboradores={setColaboradores} />
         </Col>
         <Col md={3}>
           <Formulario setAlert={setAlert} colaboradores={colaboradores} setColaboradores={setColaboradores} />
